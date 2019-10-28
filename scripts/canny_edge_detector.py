@@ -19,10 +19,15 @@ class CannyEdgeDetector:
         except CvBridgeError as e:
             print(e)
         
-        canny_image = cv2.Canny(image,100,200)
+        low_threshold = 40
+        ratio = 3
+        kernel_size = 3
+        blur = cv2.blur(image, (kernel_size, kernel_size))
+        mask = cv2.Canny(blur, low_threshold, low_threshold*ratio, kernel_size)
+        canny_edge = cv2.bitwise_and(image, image, mask = mask)
 
         try:
-            self.publisher.publish(self.bridge.cv2_to_imgmsg(canny_image, "mono8"))
+            self.publisher.publish(self.bridge.cv2_to_imgmsg(canny_edge, "bgr8"))
         except CvBridgeError as e:
             print(e)
 
