@@ -19,7 +19,7 @@ class CannyEdgeDetector:
         except CvBridgeError as e:
             print(e)
         
-        low_threshold = 40
+        low_threshold = rospy.get_param("/canny_threshold")
         ratio = 3
         kernel_size = 3
         blur = cv2.blur(image, (kernel_size, kernel_size))
