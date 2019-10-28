@@ -4,5 +4,7 @@
     <node name="cv_camera" pkg="cv_camera" type="cv_camera_node" />
 
 	<node name="canny_edge_detector" pkg="canny_edge_my_face" type="canny_edge_detector.py" />
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find canny_edge_my_face)/rviz/cfg.rviz" />
 </launch> 
  
