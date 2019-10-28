@@ -1,6 +1,8 @@
 <launch>
     <param name="canny_threshold" type="int" value="40" />
 
-	<node name="canny_edge_detector" pkg="canny_edge_my_face" type="canny_edge_detector.py"/>
+    <node name="cv_camera" pkg="cv_camera" type="cv_camera_node" />
+
+	<node name="canny_edge_detector" pkg="canny_edge_my_face" type="canny_edge_detector.py" />
 </launch> 
  
